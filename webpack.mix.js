@@ -13,6 +13,10 @@ const tailwindcss = require('tailwindcss');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/assets/js/jquery.min.js', 'public/js')
+    .js('resources/assets/js/theme.js', 'public/js')
+    .js('resources/assets/js/simplebar.min.js', 'public/js')
+    .js('resources/assets/js/waves.js', 'public/js')
     .vue()
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/icons.min.scss', 'public/css')

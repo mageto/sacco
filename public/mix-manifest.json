@@ -1,5 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/jquery.min.js": "/js/jquery.min.js",
+    "/js/theme.js": "/js/theme.js",
+    "/js/simplebar.min.js": "/js/simplebar.min.js",
+    "/js/waves.js": "/js/waves.js",
     "/css/theme.min.css": "/css/theme.min.css",
     "/css/app.css": "/css/app.css",
     "/css/icons.min.css": "/css/icons.min.css",
