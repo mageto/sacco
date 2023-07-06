@@ -22,66 +22,157 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/theme.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css"/>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <span><img src="{{ asset('images/logo.png') }}"></span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+    <!-- Begin page -->
+    <div id="layout-wrapper">
 
-                    </ul>
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+            <div data-simplebar class="h-100">
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                <div class="navbar-brand-box">
+                    <a href="{{ url('/') }}" class="">
+                        <img src="{{ asset('images/logo.png') }}">
+                    </a>
+                </div>
+                <hr>
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                        <li>
+                            <a href="index.html" class="waves-effect"><span>Dashboard</span></a>
+                        </li><hr>
+                        <li>
+                            <a href="index.html" class="waves-effect"><span>Members</span></a>
+                        </li><hr>
+                        <li>
+                            <a href="index.html" class="waves-effect"><span>Loans</span></a>
+                        </li><hr>
+                        <li>
+                            <a href="index.html" class="waves-effect"><span>Messages</span></a>
+                        </li><hr>
                     </ul>
                 </div>
+                <!-- Sidebar -->
             </div>
-        </nav>
+        </div>
+        <!-- Left Sidebar End -->
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <header id="page-topbar">
+            <div class="navbar-header">
+
+                <div class="d-flex align-items-left">
+                    <button type="button" class="btn btn-sm mr-2 d-lg-none px-3 font-size-16 header-item waves-effect"
+                        id="vertical-menu-btn">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                </div>
+
+                <div class="d-flex align-items-center">
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!-- <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                                alt="Header Avatar"> -->
+                            <span class="d-none d-sm-inline-block ml-1"> {{ Auth::user()->name }} </span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                href="javascript:void(0)">
+                                <span>Inbox</span>
+                                <span>
+                                    <span class="badge badge-pill badge-soft-primary">3</span>
+                                </span>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                href="javascript:void(0)">
+                                <span>Profile</span>
+                                <span>
+                                    <span class="badge badge-pill badge-soft-danger">1</span>
+                                </span>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                href="javascript:void(0)">
+                                Settings
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                href="javascript:void(0)">
+                                <span>Lock Account</span>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                href="javascript:void(0)">
+                                <span>Log Out</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0 font-size-18"> {{ env('APP_NAME') }} </h4>
+                            </div>
+                            <hr>
+                            <main class="py-4">
+                                @yield('content')
+                            </main>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            2023 © Mageto Nyarondia.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-right d-none d-sm-block">
+                                Design & Developed by Mageto Nyarondia
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- end main content-->
+
     </div>
+    <!-- END layout-wrapper -->
+    </div>
+
+    <!-- jQuery  -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/waves.js') }}"></script>
+    <script src="{{ asset('js/simplebar.min.js') }}"></script>
+
+    <!-- App js -->
+    <script src="{{ asset('js/theme.js') }}"></script>
 </body>
 </html>
