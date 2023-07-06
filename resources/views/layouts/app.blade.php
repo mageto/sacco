@@ -18,13 +18,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- App css -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/theme.min.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <span><img src="{{ asset('images/logo.png') }}"></span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
